@@ -6,7 +6,8 @@
   "scripts": {
     "dev-start": "nodemon ./server/app.js",
     "build": "webpack --watch",
-    "start": "node ./server/app.js"
+    "start": "node ./server/app.js",
+    "dev": "webpack-dev-server --inline"
   },
   "author": "Priyanka Shah",
   "license": "UNLICENSED",

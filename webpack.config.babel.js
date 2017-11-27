@@ -25,7 +25,16 @@ const config = {
                 ]
             }
         ]
-    }
+    },
+    devServer: {
+        publicPath: "/",
+        contentBase: "client/dist",
+        hot: true
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    ]
 };
 
 export default config;
