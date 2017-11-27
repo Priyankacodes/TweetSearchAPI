@@ -11,8 +11,8 @@ class TweetSearch extends Component {
         this.state = {
             results: [],
             isLoading: false,
-            value: '',
-            error: false
+            error: false,
+            value: ''
         };
     };
 
@@ -25,15 +25,13 @@ class TweetSearch extends Component {
                 this.setState({
                     results: tweets,
                     isLoading: false,
-                    error: false,
-                    value: query
+                    error: false
                 });
             })
             .catch(err => {
                 this.setState({
                     error: true,
-                    isLoading: false,
-                    value: query
+                    isLoading: false
                 });
             });
     }
@@ -42,7 +40,8 @@ class TweetSearch extends Component {
         const query = e.target.value.trim();
         if (query.length) {
             this.setState({
-                isLoading: true
+                isLoading: true,
+                value: query
             });
             this.apiCall(query)
         }
@@ -60,7 +59,7 @@ class TweetSearch extends Component {
     };
 
     render = () => {
-        const { error, results, isLoading, value } = this.state;
+        const { results, isLoading, error } = this.state;
         return (
             <div id='tweet-search'>
                 <input

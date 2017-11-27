@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Card } from 'semantic-ui-react';
 import Linkify from 'react-linkify';
 
+import A from './A';
+
 class TweetItem extends Component {
     constructor(props) {
         super(props);
@@ -10,19 +12,23 @@ class TweetItem extends Component {
     createLink = (text) => {
 
         let apiCall = this.props.apiCall
+        let tempArr = text.split(' ')
 
         if (text.indexOf('@') > -1 || text.indexOf('#') > -1) {
-            let tempArr = text.split(' ')
+
             tempArr = tempArr.map(word => {
                 if (word.charAt(0) === '@' || word.charAt(0) === '#') {
-                    return <a href="#" onClick={() => apiCall({word})} defaultValue={word} />
+                    return <A word={word} apiCall={apiCall} />
                 } else {
                     return word
                 }
             })
             text = tempArr.join(' ')
         }
-    return text
+
+        return tempArr.map((word, index) => {
+            return <span key={index}> {word}</span>
+        })
     }
 
     render () {

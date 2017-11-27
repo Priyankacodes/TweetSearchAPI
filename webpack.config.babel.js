@@ -3,9 +3,10 @@ import path from 'path';
 const distDir = path.join(__dirname, 'client/dist');
 
 const config = {
-    entry: './client/src/index',
+    entry: './client/src/index.js',
     output: {
         path: distDir,
+        publicPath: 'client/dist',
         filename: 'bundle.js'
     },
     module: {
