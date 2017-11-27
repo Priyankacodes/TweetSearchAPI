@@ -7,10 +7,14 @@ Tweet Search API using Node.js, Express, React
 Loading the Data
 
 From project folder: 
+
 $ mysql -u root < database/schema.mssql;
-$ mysql -u root --local-infile=1
+
+$ mysql -u root --local-infile=1;
+
 
 mysql> use tweetDB;
+
 mysql> LOAD DATA LOCAL INFILE 'database/data.txt' INTO TABLE tweets FIELDS TERMINATED BY '\t' LINES TERMINATED BY '\n' IGNORE 1 LINES (created_at, text, user_id);
 
 ################################
