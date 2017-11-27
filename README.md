@@ -25,7 +25,9 @@ To install dependencies: npm install
 
 To start server: npm start
 
-To run build: npm run build
+To run build: npm run dev
+
+Goto: http:localhost:8080/
 
 ################################
 
